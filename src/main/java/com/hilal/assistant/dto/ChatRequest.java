@@ -1,4 +1,4 @@
-package com.hilal.assistant.model;
+package com.hilal.assistant.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

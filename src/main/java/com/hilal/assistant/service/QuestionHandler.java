@@ -1,9 +1,8 @@
-package com.hilal.assistant.handler;
+package com.hilal.assistant.service;
 
-import com.hilal.assistant.model.Intent;
 
 public interface QuestionHandler {
-Intent supports(String question);
+Boolean supports(String question);
 String handle();
 
 }

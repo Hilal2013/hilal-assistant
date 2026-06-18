@@ -1,4 +1,4 @@
-package com.hilal.assistant.model;
+package com.hilal.assistant.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

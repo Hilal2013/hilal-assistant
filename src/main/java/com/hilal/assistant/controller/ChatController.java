@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hilal.assistant.model.ChatRequest;
-import com.hilal.assistant.model.ChatResponse;
+import com.hilal.assistant.dto.ChatRequest;
+import com.hilal.assistant.dto.ChatResponse;
 import com.hilal.assistant.service.ChatService;
 
 import jakarta.validation.Valid;
