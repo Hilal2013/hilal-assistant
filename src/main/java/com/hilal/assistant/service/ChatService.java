@@ -2,38 +2,47 @@ package com.hilal.assistant.service;
 
 import org.springframework.stereotype.Service;
 
-import com.hilal.assistant.data.KnowledgeBase;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.List;
+
+
 
 @Service
+@Slf4j
 public class ChatService {
-private static final Logger log=LoggerFactory.getLogger(ChatService.class);
+
+    //private static final Logger log=LoggerFactory.getLogger(ChatService.class);instead of this @Slf4j
+private final List<QuestionHandler> handlers;
+
+
+    public ChatService(List<QuestionHandler> handlers) {
+    this.handlers = handlers;
+}
+
+
     public String reply(String question){
 
             log.info("Incoming question: {}", question);
+ for (QuestionHandler handler : handlers) {
 
-        String q = question.toLowerCase();
-    
+            if (handler.supports(question)) {
 
-        if(q.contains("skill"))
-            return KnowledgeBase.ANSWERS.get("skills");
+                log.info("Matched handler: {}", handler.getClass().getSimpleName());
 
-        if(q.contains("experience"))
-            return KnowledgeBase.ANSWERS.get("experience");
+                return handler.handle();
+            }
+        }
+    log.warn("Unknown question: {}", question);
 
-        if(q.contains("project"))
-            return KnowledgeBase.ANSWERS.get("projects");
-        if(q.contains("about me") || q.equals("about"))
-            return KnowledgeBase.ANSWERS.get("about");
 
         return """
                 I can answer questions about:
 
                 • About Hilal
-                • Skills
-                • Experience
-                • Projects
+                • Technical Skills
+                • Experience/carer/project/background
+                • contact
 
                 Try asking one of those.
                 """;
