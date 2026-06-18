@@ -14,8 +14,7 @@ private static final Logger log=LoggerFactory.getLogger(ChatService.class);
             log.info("Incoming question: {}", question);
 
         String q = question.toLowerCase();
-    if(q.contains("about"))
-            return KnowledgeBase.ANSWERS.get("about");
+    
 
         if(q.contains("skill"))
             return KnowledgeBase.ANSWERS.get("skills");
@@ -25,6 +24,9 @@ private static final Logger log=LoggerFactory.getLogger(ChatService.class);
 
         if(q.contains("project"))
             return KnowledgeBase.ANSWERS.get("projects");
+        if(q.contains("about me") || q.equals("about"))
+            return KnowledgeBase.ANSWERS.get("about");
+
         return """
                 I can answer questions about:
 
