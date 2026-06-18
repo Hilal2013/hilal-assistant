@@ -1,5 +1,7 @@
 package com.hilal.assistant.domain;
 
+import org.springframework.stereotype.Component;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
+@Component
 public class Profile {
 private About about;
     private Skills skills;
