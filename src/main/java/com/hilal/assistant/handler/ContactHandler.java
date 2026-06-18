@@ -17,6 +17,7 @@ private final KnowledgeService knowledgeService;
        String q=question.toLowerCase();
         return q.contains("contact")
                 || q.contains("email")
+                || q.contains("touch")
                 || q.contains("linkedin")
                 || q.contains("github")
                 || q.contains("resume")

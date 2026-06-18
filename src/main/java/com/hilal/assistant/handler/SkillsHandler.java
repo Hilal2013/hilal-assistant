@@ -29,7 +29,8 @@ public class SkillsHandler implements QuestionHandler {
        Skills skills =
             knowledgeService.getProfile().getSkills();
 
-    return String.join(", ", skills.getBackend());
+    return "Backend: " + String.join(", ", skills.getBackend())
+            + "\n\nCloud: " + String.join(", ", skills.getCloud());
 
 
     }

@@ -15,7 +15,7 @@ public class AboutHandler implements QuestionHandler {
     @Override
     public Boolean supports(String question) {
        String q=question.toLowerCase();
-        return q.contains("about Hilal") 
+        return q.contains("about hilal") 
         || q.equals("about")
         || q.equals("about you")
          || q.contains("about yourself")
@@ -27,11 +27,9 @@ public class AboutHandler implements QuestionHandler {
          About about =
             knowledgeService.getProfile().getAbout();
 
-    return about.getSummary()
-            + "\n\n"
-            + about.getTitle()
-            + "\n\n"
-            + about.getLocation();
+    return "Summary: " + about.getSummary()
+        + "\n\nTitle: "  + about.getTitle()
+         + "\n\nLocation: " + about.getLocation();
     }
 
 }

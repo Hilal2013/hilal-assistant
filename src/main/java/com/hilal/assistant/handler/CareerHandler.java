@@ -33,11 +33,9 @@ public class CareerHandler implements QuestionHandler {
         Career career =
             knowledgeService.getProfile().getCareer();
 
-    return career.getCurrentRole()
-            + "\n\n"
-            + career.getPreviousRole()
-            + "\n\n"
-            + career.getInternship();
+    return "Current: " + career.getCurrentRole()
+            + "\n\nPrevious: " + career.getPreviousRole()
+            + "\n\nInternship: " + career.getInternship();
     }
 
 }

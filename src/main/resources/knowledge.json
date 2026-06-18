@@ -10,7 +10,7 @@
     "backend": [
       "Java",
       "Spring Boot",
-      "RESTful APIs",
+      "REST APIs",
       "Microservices",
       "PostgreSQL",
       "Hibernate",
@@ -25,10 +25,18 @@
   },
 
   "career": {
-    "current": "Backend Java Developer at Nexus Systems working on an Accounts Payable Automation platform.",
+    "currentRole": "Backend Java Developer at Nexus Systems working on an Accounts Payable Automation platform.",
 
-    "previous": "Backend developer on an Education Management Platform.",
+    "previousRole": "Backend developer on an Education Management Platform.",
 
     "internship": "Backend internship developing e-commerce services."
-  }
+  },
+
+  "contact": {
+    
+    "email": "hilal@email.com",
+    "linkedin": "linkedin.com/in/hilalozkan",
+    "github": "github.com/hilal",
+    "resumeUrl": "https://yourdomain.com/resume.pdf"
+}
 }

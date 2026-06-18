@@ -37,14 +37,14 @@ private final List<QuestionHandler> handlers;
 
 
         return """
-                I can answer questions about:
+        I can answer questions about:
 
-                • About Hilal
-                • Technical Skills
-                • Experience/carer/project/background
-                • contact
-
-                Try asking one of those.
+        • About Hilal
+        • Technical Skills
+        • Career / Projects / Background
+        • Contact
+        
+        Try asking one of those.
                 """;
     }
 }
