@@ -2,6 +2,7 @@ package com.hilal.assistant.handler;
 
 import org.springframework.stereotype.Component;
 
+import com.hilal.assistant.domain.Career;
 import com.hilal.assistant.service.KnowledgeService;
 import com.hilal.assistant.service.QuestionHandler;
 @Component
@@ -29,7 +30,14 @@ public class CareerHandler implements QuestionHandler {
 
     @Override
     public String handle() {
-         return knowledgeService.getCareer();
+        Career career =
+            knowledgeService.getProfile().getCareer();
+
+    return career.getCurrentRole()
+            + "\n\n"
+            + career.getPreviousRole()
+            + "\n\n"
+            + career.getInternship();
     }
 
 }

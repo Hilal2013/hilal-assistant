@@ -2,6 +2,7 @@ package com.hilal.assistant.handler;
 
 import org.springframework.stereotype.Component;
 
+import com.hilal.assistant.domain.Skills;
 import com.hilal.assistant.service.KnowledgeService;
 import com.hilal.assistant.service.QuestionHandler;
 
@@ -25,7 +26,11 @@ public class SkillsHandler implements QuestionHandler {
 
     @Override
     public String handle() {
-               return knowledgeService.getSkills();
+       Skills skills =
+            knowledgeService.getProfile().getSkills();
+
+    return String.join(", ", skills.getBackend());
+
 
     }
 

@@ -1,5 +1,34 @@
 {
-  "about":"Hi! I'm Hilal...",
-  "skills":"Java, Spring Boot...",
-  "experience":"Backend developer..."
+  "about": {
+    "summary": "Hi! I'm Hilal Ozkan, a Backend Java Developer specializing in Spring Boot, REST APIs, Microservices. Im curious, fast learner.That's a bit about me! I'm excited to hear more about what you're looking for",
+     "title": "Backend Java Developer",
+    "location": "Richmond, VA"
+   
+  },
+
+  "skills": {
+    "backend": [
+      "Java",
+      "Spring Boot",
+      "RESTful APIs",
+      "Microservices",
+      "PostgreSQL",
+      "Hibernate",
+      "JPA"
+    ],
+
+    "cloud": [
+      "AWS",
+      "Docker",
+      "CircleCI"
+    ]
+  },
+
+  "career": {
+    "current": "Backend Java Developer at Nexus Systems working on an Accounts Payable Automation platform.",
+
+    "previous": "Backend developer on an Education Management Platform.",
+
+    "internship": "Backend internship developing e-commerce services."
+  }
 }
