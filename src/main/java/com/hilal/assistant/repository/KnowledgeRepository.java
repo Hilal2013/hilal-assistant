@@ -29,7 +29,7 @@ public void load(){
       try {
     InputStream stream=new ClassPathResource("knowledge.json").getInputStream();
  // Read the JSON as a raw Map first
-Map<String,Object>  raw=objectMapper.readValue(stream, Map.class);
+Map<String,Object>  raw= objectMapper.readValue(stream, Map.class);
 
             // Map each section into your domain objects
               About about = objectMapper.convertValue(raw.get("about"), About.class);

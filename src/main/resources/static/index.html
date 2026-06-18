@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hilal Ozkan — Backend Java Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --border: #e3ddd2;
+      --text: #2a2622;
+      --text-muted: #837a6d;
+      --accent: #2d5d4f;
+      --accent-light: #e7f0ec;
+      --accent-dark: #1f433a;
+      --bot-bg: #f1ede5;
+      --user-bg: #2d5d4f;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .app {
+      display: flex;
+      flex-direction: column;
+      max-width: 640px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      padding: 32px 24px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .header-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .header-role {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Messages */
+    .messages {
+      flex: 1;
+      padding: 24px 24px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      overflow-y: auto;
+    }
+
+    .msg {
+      max-width: 85%;
+      animation: rise 0.25s ease;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .msg.user {
+      align-self: flex-end;
+    }
+    .msg.bot {
+      align-self: flex-start;
+    }
+
+    .bubble {
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-size: 14px;
+      line-height: 1.65;
+      white-space: pre-line;
+    }
+
+    .msg.user .bubble {
+      background: var(--user-bg);
+      color: #fff;
+      border-radius: 14px 14px 4px 14px;
+    }
+
+    .msg.bot .bubble {
+      background: var(--bot-bg);
+      color: var(--text);
+      border-radius: 14px 14px 14px 4px;
+    }
+
+    .msg-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      padding: 0 4px;
+    }
+    .msg.user .msg-label { text-align: right; }
+
+    /* Suggested questions */
+    .suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 4px 24px 16px;
+    }
+
+    .suggestion {
+      padding: 8px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--text);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+    .suggestion:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      color: var(--accent-dark);
+    }
+
+    /* Input */
+    .input-area {
+      padding: 16px 24px 28px;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 4px 4px 4px 16px;
+      align-items: center;
+      transition: border-color 0.15s;
+    }
+    .input-row:focus-within {
+      border-color: var(--accent);
+    }
+
+    #input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text);
+      padding: 10px 0;
+    }
+    #input::placeholder { color: var(--text-muted); }
+
+    #send-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    #send-btn:hover { background: var(--accent-dark); }
+    #send-btn svg { color: #fff; }
+
+    @media (max-width: 500px) {
+      .header { padding: 24px 16px 16px; }
+      .messages { padding: 16px 16px 8px; }
+      .suggestions { padding: 4px 16px 12px; }
+      .input-area { padding: 12px 16px 20px; }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+
+  <header class="header">
+    <div class="header-eyebrow">Backend Java Developer</div>
+    <div class="header-name">Hilal Ozkan</div>
+    <div class="header-role">Spring Boot · REST APIs · Microservices</div>
+    <div class="status-row">
+      <span class="status-dot"></span>
+      Ask me about skills, experience, or how to get in touch
+    </div>
+  </header>
+
+  <div class="messages" id="messages"></div>
+
+  <div class="suggestions" id="suggestions">
+    <button class="suggestion" onclick="ask('Tell me about yourself')">About</button>
+    <button class="suggestion" onclick="ask('What are your skills')">Skills</button>
+    <button class="suggestion" onclick="ask('Tell me about your career')">Career</button>
+    <button class="suggestion" onclick="ask('How can I contact you')">Contact</button>
+  </div>
+
+  <div class="input-area">
+    <div class="input-row">
+      <input type="text" id="input" placeholder="Ask a question..." />
+      <button id="send-btn" onclick="send()" aria-label="Send">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const API_URL = "/api/chat";
+
+  const messagesEl = document.getElementById("messages");
+  const inputEl = document.getElementById("input");
+  const suggestionsEl = document.getElementById("suggestions");
+
+  inputEl.addEventListener("keydown", e => {
+    if (e.key === "Enter") send();
+  });
+
+  function addMessage(role, text) {
+    const wrap = document.createElement("div");
+    wrap.className = "msg " + role;
+    wrap.innerHTML = `
+      <div class="msg-label">${role === "user" ? "You" : "Hilal's assistant"}</div>
+      <div class="bubble"></div>
+    `;
+    wrap.querySelector(".bubble").textContent = text;
+    messagesEl.appendChild(wrap);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function ask(text) {
+    inputEl.value = text;
+    send();
+  }
+
+  function showWelcome() {
+    addMessage("bot", "Hi! I'm Hilal's assistant. Ask me about:\n\n• About Hilal\n• Technical skills\n• Career & experience\n• Contact info\n\nOr just tap a button below.");
+  }
+
+  async function send() {
+    const message = inputEl.value.trim();
+    if (!message) return;
+
+    inputEl.value = "";
+    suggestionsEl.style.display = "none";
+    addMessage("user", message);
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+
+      if (!res.ok) {
+        addMessage("bot", "Error " + res.status + " — please try again.");
+        return;
+      }
+
+      const data = await res.json();
+      addMessage("bot", data.reply);
+
+    } catch (err) {
+      addMessage("bot", "Connection failed. Is the backend running on port 8080?");
+      console.error(err);
+    }
+  }
+
+  showWelcome();
+</script>
+</body>
+</html>
