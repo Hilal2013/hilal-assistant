@@ -6,11 +6,11 @@ import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.hilal.assistant.dto.ErrorResponse;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -41,12 +41,12 @@ public ResponseEntity<Map<String, String>> handleValidation(MethodArgumentNotVal
  
         log.error("Null pointer encountered", ex);
  
-        ErrorResponse error=new ErrorResponse() {
-            Instant.now(),
+        ErrorResponse error=new ErrorResponse(
+                Instant.now(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 "Internal Server Error",
                 "Something went wrong on our end. Please try again."
-        };
+        );
  
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
     }
