@@ -1,8 +1,8 @@
 {
   "about": {
-    "summary": "Hi! I'm Hilal Ozkan, a Backend Java Developer specializing in Spring Boot, REST APIs, Microservices. Im curious, fast learner.That's a bit about me! I'm excited to hear more about what you're looking for",
+     "summary": "Hi! I'm Hilal Ozkan, a Backend Java Developer specializing in Spring Boot, REST APIs, Microservices. AWS Certified Cloud Practitioner. I'm curious, fast learner. That's a bit about me! I'm excited to hear more about what you're looking for",
      "title": "Backend Java Developer",
-    "location": "Richmond, VA"
+     "location": "Glen Allen, VA"
    
   },
 
@@ -14,7 +14,10 @@
       "Microservices",
       "PostgreSQL",
       "Hibernate",
-      "JPA"
+      "JPA",
+      "OAuth 2.0",
+      "Keycloak",
+      "Junit 5"
     ],
 
     "cloud": [
@@ -34,9 +37,8 @@
 
   "contact": {
     
-    "email": "hilal@email.com",
-    "linkedin": "linkedin.com/in/hilalozkan",
-    "github": "github.com/hilal",
-    "resumeUrl": "https://yourdomain.com/resume.pdf"
+    "email": "hilalozkulozkan@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/hhilalozkann/",
+    "github": "github.com/Hilal2013"
 }
 }
