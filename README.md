@@ -6,7 +6,7 @@ Profile Assistant is a Spring Boot backend application that acts as an interacti
 
 This project demonstrates backend engineering skills, clean architecture, and REST API design using Java and Spring Boot — built as a live, working replacement for a static résumé.
 
-**🔗 Live demo:** [your-render-url-here.onrender.com](https://your-render-url-here.onrender.com)
+**🔗 Live demo:** https://hilal-assistant.onrender.com
 
 ---
 
